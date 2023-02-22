@@ -4,6 +4,9 @@ import {CreateAccount} from "./components/CreateAccount";
 import {AccountsList} from "./components/AccountsList";
 import {DeleteAccount} from "./components/DeleteAccount";
 import {GetBalances} from "./components/GetBalances";
+import {CreditBalance} from "./components/CreditBalances";
+import {TransferBalances} from "./components/TransferBalances";
+import {DebitBalance} from "./components/DebitBalances";
 
 import './index.css';
 
@@ -13,14 +16,17 @@ export function App() {
     return(
         <Fragment>
             <Navbar/>
-            <div className="container center">
-                {/* <CreateAccount /> */}
-                {/* <AccountsList accounts={accounts}/> */}
+            {/* <div className="container mainScreen">
+                <CreateAccount />
                 <DeleteAccount/>
-                {/* <GetBalances/> */}
-
+            </div> */}
+            <div className="container mainScreen">
+              <GetBalances/>
+              <CreditBalance/>
+              <DebitBalance/>
+              <TransferBalances/>
             </div>
-            
+
         </Fragment>
     );
 }

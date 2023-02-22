@@ -46,9 +46,10 @@ export function CreateAccount() {
                 </div>
             </div>
             <div class="card__content">
+                <h2>➕</h2>
                 <form onSubmit={handleSubmit}>
                     <h2>Create Account</h2>
-                    <label className='label'>Owner:</label>
+                    <label className='label'>Owner Name:</label>
                     <input className='input' type="text" value={owner} onChange={handleInputChange} />
                     <button type="submit">Create Account</button>
                 </form>

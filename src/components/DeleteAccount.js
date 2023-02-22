@@ -20,7 +20,7 @@ export function DeleteAccount() {
                 body: JSON.stringify({ id: accountId }),
                 
             });
-console.log(response);
+            console.log(response);
             const result = await response.json();
             console.log(result);
             
@@ -48,12 +48,11 @@ console.log(response);
                 </div>
             </div>
             <div class="card__content">
-                <h1>Delete Account</h1>
+                <h2>❌</h2>
                 <form onSubmit={handleSubmit}>
-                    <label>
-                        Account ID:
-                        <input className='input' type="text" value={accountId} onChange={handleInputChange} />
-                    </label>
+                    <h2>Delete Account</h2>
+                    <label className='label'>Account ID:</label>
+                    <input className='input' type="text" value={accountId} onChange={handleInputChange} />
                     <button type="submit">Disable Account</button>
                 </form>
                 {status && <p>{status}</p>}
