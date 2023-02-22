@@ -61,8 +61,60 @@ body {
 .balances {
     width: 95% !important;
 }
-li{
+
+ul{
     list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+
+li {
+    list-style: none;
+    margin: 30px;
+}
+
+.balances-card {
+    width: 280px;
+    height: 100px;
+    background: whitesmoke;
+    transition: .2s linear;
+    box-shadow: 1px 1px 10px lightslategray;
+    cursor: default;
+}
+
+.balances-card .card-top-part {
+    width: 100%;
+    height: 70%;
+    padding: 15px;
+    display: flex;
+}
+
+.balances-card .card-top-part .name {
+    font-size: 18px;
+}
+
+.card-bottom-part {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    border: 1px solid rgb(231, 227, 227);
+    background: whitesmoke;
+    box-shadow: 1px 1px 10px lightslategray;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.bottom-part {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .custom-card form {
@@ -165,3 +217,6 @@ button:-webkit-details-marker {
     display: none;
 }
 
+.bg-red{
+    background-color: red;
+}

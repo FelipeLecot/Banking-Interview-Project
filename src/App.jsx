@@ -1,7 +1,7 @@
 import React, {Fragment, useState, useEffect} from "react";
+
 import {Navbar} from "./components/Navbar";
 import {CreateAccount} from "./components/CreateAccount";
-import {AccountsList} from "./components/AccountsList";
 import {DeleteAccount} from "./components/DeleteAccount";
 import {GetBalances} from "./components/GetBalances";
 import {CreditBalance} from "./components/CreditBalances";
@@ -16,17 +16,16 @@ export function App() {
     return(
         <Fragment>
             <Navbar/>
-            {/* <div className="container mainScreen">
+            <div className="container mainScreen">
                 <CreateAccount />
                 <DeleteAccount/>
-            </div> */}
+            </div>
             <div className="container mainScreen">
               <GetBalances/>
               <CreditBalance/>
               <DebitBalance/>
               <TransferBalances/>
             </div>
-
         </Fragment>
     );
 }

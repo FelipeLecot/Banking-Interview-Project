@@ -32,6 +32,7 @@ export function TransferBalances() {
             console.log(from);
             console.log(account);
             console.log(quantity);
+            console.log(status);
 
 
             if (result.status === 'ok') {
@@ -45,19 +46,19 @@ export function TransferBalances() {
     };
 
     return (
-        <div class="custom-card">
-            <div class="tools">
-                <div class="circle">
-                    <span class="red box"></span>
+        <div className="custom-card">
+            <div className="tools">
+                <div className="circle">
+                    <span className="red box"></span>
                 </div>
-                <div class="circle">
-                    <span class="yellow box"></span>
+                <div className="circle">
+                    <span className="yellow box"></span>
                 </div>
-                <div class="circle">
-                    <span class="green box"></span>
+                <div className="circle">
+                    <span className="green box"></span>
                 </div>
             </div>
-            <div class="card__content">
+            <div className="card__content">
                 <h2>Transfer Balance</h2>
                 <form onSubmit={handleSubmit}>
                     <label className='label'>To account:</label>

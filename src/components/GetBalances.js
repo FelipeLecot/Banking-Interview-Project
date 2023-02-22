@@ -28,32 +28,49 @@ export function GetBalances() {
   }, []);
 
   return (
-    <div class="custom-card balances">
-      <div class="tools">
-        <div class="circle">
-          <span class="red box"></span>
+    <div className="custom-card balances">
+      <div className="tools">
+        <div className="circle">
+          <span className="red box"></span>
         </div>
-        <div class="circle">
-          <span class="yellow box"></span>
+        <div className="circle">
+          <span className="yellow box"></span>
         </div>
-        <div class="circle">
-          <span class="green box"></span>
+        <div className="circle">
+          <span className="green box"></span>
         </div>
       </div>
-      <div class="card__content">
+      <div className="card__content">
         <h2>Balances</h2><br />
         {balances.length > 0 ? (
           <ul>
-            {balances.map((balances) => (
-              <li key={balances.id}>
-                <strong>Account ID: </strong>{balances._id} | <strong>Balance ARS: </strong>{balances.ars} | <strong>Balance USD: </strong>{balances.usd} <hr />
+            {balances.map((balances, index) => (
+              <li key={index} className="balances-card" >
+                <div className="balances-card">
+                  <div className="card-top-part">
+                  <p className={balances.active ? "name green" : "name bg-red"}>Account ID: {balances._id}</p>
+                  </div>
+                </div>
+                <div className="card-bottom-part">
+                  <div className="bottom-part">
+                    ARS: {balances.ars}
+                  </div>
+                  <div className="bottom-part">
+                    USD: {balances.usd}
+                  </div>
+                </div>
               </li>
             ))}
+
+
+
+
+
           </ul>
         ) : (
           <p>No balances found.</p>
         )}
       </div>
-    </div>
+    </div >
   );
 };

@@ -5,10 +5,8 @@ export function CreditBalance() {
     const [account, setAccount] = useState('');
     const [quantity, setQuantity] = useState(0);
     const [status, setStatus] = useState(null);
-
     async function handleSubmit(event) {
         event.preventDefault();
-
         try {
             const response = await fetch('https://api-interview.do2software.com/v1/creditBalance', {
                 method: 'POST',
@@ -21,13 +19,7 @@ export function CreditBalance() {
                     quantity,
                 }),
             });
-
             const result = await response.json();
-            console.log(result);
-            console.log(id);
-            console.log(account);
-            console.log(quantity);
-
             if (result.status === 'ok') {
                 setStatus(`Successfully credited ${quantity} ${account} to account ${id}`);
             } else {
@@ -40,19 +32,19 @@ export function CreditBalance() {
 
     return (
 
-        <div class="custom-card">
-            <div class="tools">
-                <div class="circle">
-                    <span class="red box"></span>
+        <div className="custom-card">
+            <div className="tools">
+                <div className="circle">
+                    <span className="red box"></span>
                 </div>
-                <div class="circle">
-                    <span class="yellow box"></span>
+                <div className="circle">
+                    <span className="yellow box"></span>
                 </div>
-                <div class="circle">
-                    <span class="green box"></span>
+                <div className="circle">
+                    <span className="green box"></span>
                 </div>
             </div>
-            <div class="card__content">
+            <div className="card__content">
                 <h2>Credit Balance</h2>
                 <form onSubmit={handleSubmit}>
                     <label className='label'>Account ID:</label>
