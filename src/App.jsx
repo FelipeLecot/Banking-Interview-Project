@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
+import { Error } from "./components/Error";
 import { CreateAccount } from "./components/CreateAccount";
 import { DeleteAccount } from "./components/DeleteAccount";
 import { GetBalances } from "./components/GetBalances";
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <div className="container mainScreen"><CreateAccount /></div>,
+        errorElement: <div className="container mainScreen"><Error/></div>
     },
     {
         path: "/DeleteAccount",
