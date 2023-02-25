@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 
 export function GetBalances({balanceStates}) {
   const [balances, setBalances] = balanceStates;
-  const [status, setStatus] = useState(null);
 
   useEffect(() => {
     async function fetchBalances() {
@@ -16,14 +15,12 @@ export function GetBalances({balanceStates}) {
         const result = await response.json();
         if (result.status === 'ok') {
           setBalances(result.data);
-        } else {
-          setStatus(`Error: ${result.errorCode}`);
         }
       } catch (error) {
       }
     }
     fetchBalances();
-  }, []);
+  }, [setBalances]);
 
   const displayBalances = (array) => {
     let components = [];

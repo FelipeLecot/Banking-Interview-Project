@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-export function DebitBalance() {
+export function DebitBalance({balanceStates}) {
+    const [balances, setBalances] = balanceStates;
     const [id, setId] = useState('');
     const [account, setAccount] = useState('');
     const [quantity, setQuantity] = useState(0);
@@ -22,6 +23,13 @@ export function DebitBalance() {
             const result = await response.json();
 
             if (result.status === 'ok') {
+                let newBalances = balances.map((el) => {
+                    if (el._id === id) {
+                        el[account] -= quantity
+                    } 
+                    return el
+                })
+                setBalances(newBalances)
                 setStatus(`Successfully debited ${quantity} ${account} balance in account: ${id}`);
             } else {
                 setStatus(`Error: ${result.errorCode}`);

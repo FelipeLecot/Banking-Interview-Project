@@ -24,7 +24,7 @@ export function CreditBalance({balanceStates}) {
             const result = await response.json();
             if (result.status === 'ok') {
                 let newBalances = balances.map((el) => {
-                    if (el._id == id) {
+                    if (el._id === id) {
                         el[account] += quantity
                     } 
                     return el
