@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
-export function CreditBalance({setBalances}) {
+export function CreditBalance({balanceStates}) {
+    const [balances, setBalances] = balanceStates;
     const [id, setId] = useState('');
     const [account, setAccount] = useState('');
     const [quantity, setQuantity] = useState(0);
     const [status, setStatus] = useState(null);
 
-    console.log(setBalances)
     async function handleSubmit(event) {
         event.preventDefault();
         try {
@@ -23,6 +23,13 @@ export function CreditBalance({setBalances}) {
             });
             const result = await response.json();
             if (result.status === 'ok') {
+                let newBalances = balances.map((el) => {
+                    if (el._id == id) {
+                        el[account] += quantity
+                    } 
+                    return el
+                })
+                setBalances(newBalances)
                 setStatus(`Successfully credited ${quantity} ${account} to account ${id}`);
             } else {
                 setStatus(`Error: ${result.errorCode}`);
