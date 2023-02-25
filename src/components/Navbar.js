@@ -7,7 +7,7 @@ export function Navbar() {
                 <a href='/' className='navbar-brand'>Create Account</a>
                 <a href='/DeleteAccount' className='navbar-brand'>Delete Account</a>
                 <div className="nav-item dropdown">
-                    <a className="navbar-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Balances</a>
+                    <button className="dropdown-btn navbar-brand dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Balances</button>
                     <ul className="dropdown-menu">
                         <li><a className="dropdown-item" href="/CreditBalance">Credit Balance</a></li>
                         <li><a className="dropdown-item" href="/DebitBalance">Debit Balance</a></li>

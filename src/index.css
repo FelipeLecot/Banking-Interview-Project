@@ -12,6 +12,15 @@ a{
     flex-direction: row;
 }
 
+.dropdown-btn {
+    color: #212121;
+    padding: 12px;
+}
+
+.dropdown-btn:focus {
+    color: #212121;
+}
+
 .spinner-box {
     width: 300px;
     height: 300px;
