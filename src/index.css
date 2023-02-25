@@ -2,6 +2,10 @@ body {
     background-color: #212121;
 }
 
+h1, h2, h3, h4, h5, h6,p {
+    margin: 0;
+}
+
 a{
     text-decoration: none;
 }
@@ -123,26 +127,43 @@ ul{
 
 li {
     list-style: none;
-    margin: 30px;
+    margin: 20px;
+}
+
+.status-marker {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.balances-card .status-marker.enabled {
+    background-color: #00ca4e;
+}
+
+.balances-card .status-marker.disabled {
+    background-color: #ff605c;
 }
 
 .balances-card {
     width: 280px;
-    height: 100px;
+    height: 120px;
     background: whitesmoke;
     transition: .2s linear;
-    box-shadow: 1px 1px 10px lightslategray;
+    box-shadow: 0 0 7px 3px lightgrey;
+    border-radius: 5px;
     cursor: default;
 }
 
 .balances-card .card-top-part {
     width: 100%;
-    height: 70%;
-    padding: 15px;
+    height: calc(70% - 10px);
+    padding: 15px 0 0 15px;
     display: flex;
 }
 
 .balances-card .card-top-part .name {
+    margin-top: 10px;
     font-size: 18px;
 }
 
@@ -150,11 +171,6 @@ li {
     width: 100%;
     height: 30%;
     display: flex;
-    border: 1px solid rgb(231, 227, 227);
-    background: whitesmoke;
-    box-shadow: 1px 1px 10px lightslategray;
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
 }
 
 .bottom-part {

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+import BalanceCards from './BalanceCards.js';
 
 export function GetBalances({balanceStates}) {
   const [balances, setBalances] = balanceStates;
-
+  
   useEffect(() => {
     async function fetchBalances() {
       try {
@@ -28,21 +29,7 @@ export function GetBalances({balanceStates}) {
     for (let i = array.length; i > 0; i--) {
       const el = array[i-1];
       components.push(
-        <li key={i} className="balances-card" >
-          <div className="balances-card">
-            <div className="card-top-part">
-            <p className={el.active ? "name green" : "name bg-red"}>Account ID: {el._id}</p>
-            </div>
-          </div>
-          <div className="card-bottom-part">
-            <div className="bottom-part">
-              ARS: {el.ars}
-            </div>
-            <div className="bottom-part">
-              USD: {el.usd}
-            </div>
-          </div>
-        </li>
+        <BalanceCards key={i} account={el} />
       )
     }
     return components
@@ -62,7 +49,7 @@ export function GetBalances({balanceStates}) {
         </div>
       </div>
       <div className="card__content">
-        <h2>Balances</h2><br />
+        <h2>Balances</h2>
         {
         balances != null ? 
           (

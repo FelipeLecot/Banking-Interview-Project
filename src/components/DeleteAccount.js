@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-export function DeleteAccount() {
+export function DeleteAccount({balanceStates}) {
+    const [balances, setBalances] = balanceStates;
     const [accountId, setAccountId] = useState('');
     const [status, setStatus] = useState(null);
 
@@ -25,6 +26,13 @@ export function DeleteAccount() {
             console.log(result);
             
             if (result.status === 'ok') {
+                let newBalances = balances.map((el) => {
+                    if (el._id === accountId) {
+                        el.active = false
+                    } 
+                    return el
+                })
+                setBalances(newBalances)
                 setStatus(`Account with ID ${accountId} disabled successfully`);
             } else {
                 setStatus(`Error: ${result.errorCode}`);
