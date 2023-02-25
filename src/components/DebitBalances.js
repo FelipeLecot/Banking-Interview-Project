@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export function DebitBalance({balanceStates}) {
     const [balances, setBalances] = balanceStates;
     const [id, setId] = useState('');
-    const [account, setAccount] = useState('');
+    const [account, setAccount] = useState('ars');
     const [quantity, setQuantity] = useState(0);
     const [status, setStatus] = useState(null);
 
