@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { BrowserRouter, createBrowserRouter, Link, Route, Router, RouterProvider, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
-import { Error } from "./components/Error";
 import { CreateAccount } from "./components/CreateAccount";
 import { DeleteAccount } from "./components/DeleteAccount";
 import { GetBalances } from "./components/GetBalances";
@@ -10,31 +9,6 @@ import { TransferBalances } from "./components/TransferBalances";
 import { DebitBalance } from "./components/DebitBalances";
 
 import './index.css';
-
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <CreateAccount />,
-        errorElement: <Error/>
-    },
-    {
-        path: "/DeleteAccount",
-        element: <DeleteAccount /> ,
-    },
-    {
-        path: "/CreditBalance",
-        element: <CreditBalance />,
-    },
-    {
-        path: "/DebitBalance",
-        element: <DebitBalance />,
-    },
-    {
-        path: "/TransferBalances",
-        element: <TransferBalances />,
-    },
-]);
-
 
 export function App() {
     const balanceStates = useState(null);
@@ -46,6 +20,10 @@ export function App() {
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<CreateAccount balanceStates={balanceStates} />} />
+                        <Route path="/DeleteAccount" element={<DeleteAccount balanceStates={balanceStates} />} />
+                        <Route path="/CreditBalance" element={<CreditBalance balanceStates={balanceStates} />} />
+                        <Route path="/DebitBalance" element={<DebitBalance balanceStates={balanceStates} />} />
+                        <Route path="/TransferBalances" element={<TransferBalances balanceStates={balanceStates} />} />
                     </Routes>
                 </BrowserRouter>
                 <GetBalances balanceStates={balanceStates}/>
