@@ -157,14 +157,29 @@ li {
 
 .balances-card .card-top-part {
     width: 100%;
-    height: calc(70% - 10px);
     padding: 15px 0 0 15px;
-    display: flex;
 }
 
 .balances-card .card-top-part .name {
-    margin-top: 10px;
-    font-size: 18px;
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.id-input {
+    border: none;
+    background: lightgrey;
+    border-radius: 5px;
+    padding: 0 8px;
+}
+
+.id-input-container {
+    display: flex;
+    height: 2rem;
+}
+
+.id-input-container > button {
+    margin: 0;
+    margin-left: 5px;
 }
 
 .card-bottom-part {
