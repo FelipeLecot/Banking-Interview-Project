@@ -2,6 +2,7 @@ import React from 'react'
 
 export function Error() {
     return (
+        <div className="container mainScreen">
         <div className="custom-card">
             <div className="tools">
                 <div className="circle">
@@ -19,6 +20,7 @@ export function Error() {
                 <hr/>
                 <h3><a href='/'>🔙 to Create Account</a></h3>
             </div>
+        </div>
         </div>
     );
 };

@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 
-export function CreateAccount() {
+export function CreateAccount({balanceStates}) {
+    const [balances, setBalances] = balanceStates;
     const [owner, setOwner] = useState('');
     const [status, setStatus] = useState(null);
+
+    console.log(balanceStates)
 
     const handleInputChange = (event) => {
         setOwner(event.target.value);
@@ -23,6 +26,15 @@ export function CreateAccount() {
             const result = await response.json();
 
             if (result.status === 'ok') {
+                let newAccount = {
+                    _id: result.data,
+                    owner: owner,
+                    ars: 0,
+                    usd: 0,
+                    active: true
+                }
+
+                setBalances([...balances, newAccount])
                 setStatus(`Account created successfully with ID: ${result.data}`);
             } else {
                 setStatus(`Error: ${result.errorCode}`);

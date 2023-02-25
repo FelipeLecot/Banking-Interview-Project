@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter, createBrowserRouter, Link, Route, Router, RouterProvider, Routes } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Error } from "./components/Error";
 import { CreateAccount } from "./components/CreateAccount";
@@ -14,37 +14,42 @@ import './index.css';
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <div className="container mainScreen"><CreateAccount /></div>,
-        errorElement: <div className="container mainScreen"><Error/></div>
+        element: <CreateAccount />,
+        errorElement: <Error/>
     },
     {
         path: "/DeleteAccount",
-        element: <div className="container mainScreen"><DeleteAccount /></div>,
-    },
-    {
-        path: "/GetBalances",
-        element: <div className="container mainScreen"><GetBalances /></div>,
+        element: <DeleteAccount /> ,
     },
     {
         path: "/CreditBalance",
-        element: <div className="container mainScreen"><CreditBalance /></div>,
+        element: <CreditBalance />,
     },
     {
         path: "/DebitBalance",
-        element: <div className="container mainScreen"><DebitBalance /></div>,
+        element: <DebitBalance />,
     },
     {
         path: "/TransferBalances",
-        element: <div className="container mainScreen"><TransferBalances /></div>,
+        element: <TransferBalances />,
     },
 ]);
 
 
 export function App() {
+    const balanceStates = useState(null);
+
     return (
-        <Fragment>
+        <>
             <Navbar />
-            <RouterProvider router={router} />
-        </Fragment>
+            <div className="container mainScreen">
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<CreateAccount balanceStates={balanceStates} />} />
+                    </Routes>
+                </BrowserRouter>
+                <GetBalances balanceStates={balanceStates}/>
+            </div>
+        </>
     );
 }

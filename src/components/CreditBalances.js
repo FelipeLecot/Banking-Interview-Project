@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
-export function CreditBalance() {
+export function CreditBalance({setBalances}) {
     const [id, setId] = useState('');
     const [account, setAccount] = useState('');
     const [quantity, setQuantity] = useState(0);
     const [status, setStatus] = useState(null);
+
+    console.log(setBalances)
     async function handleSubmit(event) {
         event.preventDefault();
         try {
@@ -31,7 +33,6 @@ export function CreditBalance() {
     }
 
     return (
-
         <div className="custom-card">
             <div className="tools">
                 <div className="circle">
