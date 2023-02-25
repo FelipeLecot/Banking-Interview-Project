@@ -31,14 +31,20 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
+}
+
+.pulse-container {
+    width: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .pulse-bubble {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #3ff9dc;
+    background-color: #ffbd44;
 }
 
 .pulse-bubble-1 {
@@ -103,16 +109,39 @@ a{
     background-color: #00ca4e;
 }
 
+ul {
+    padding-left: 0;
+}
+
 .card__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 20px;
 }
 
 .balances {
-    width: 95% !important;
+    width: 75%;
+}
+
+.navbar > .container {
+    justify-content: center;
+}
+
+.navbar > .container > * {
+    margin: 0 10px;
+}
+
+.nav-item.dropdown > button {
+    margin: 0;
+    padding: 12px;
+}
+
+.navbar-brand {
+    border: 2px solid var(--bs-navbar-brand-color);
+    padding: 6px 12px;
+    border-radius: 5px;
 }
 
 ul{
@@ -146,7 +175,7 @@ li {
 }
 
 .balances-card {
-    width: 280px;
+    width: 200px;
     height: 120px;
     background: whitesmoke;
     transition: .2s linear;
@@ -157,7 +186,7 @@ li {
 
 .balances-card .card-top-part {
     width: 100%;
-    padding: 15px 0 0 15px;
+    padding: 15px 15px 0 15px;
 }
 
 .balances-card .card-top-part .name {
@@ -170,6 +199,7 @@ li {
     background: lightgrey;
     border-radius: 5px;
     padding: 0 8px;
+    overflow-x: scroll;
 }
 
 .id-input-container {
@@ -202,7 +232,7 @@ li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 10px;
 }
 
 .input {

@@ -17,7 +17,12 @@ export function GetBalances({balanceStates}) {
         if (result.status === 'ok') {
           setBalances(result.data);
         }
+        else {
+          setBalances([]);
+        }
       } catch (error) {
+        console.error(error)
+        setBalances([]);
       }
     }
     fetchBalances();
